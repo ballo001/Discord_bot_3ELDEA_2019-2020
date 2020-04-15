@@ -11,6 +11,7 @@ prefix = "?" #Define prefix for bot
 idtoggle = False
 
 client = commands.Bot(command_prefix ='?')
+client.remove_command('help')
 
 @client.event
 async def on_ready():
@@ -31,6 +32,18 @@ async def addrole(ctx):
 async def purge(ctx,limit: int):
     delete = await ctx.channel.purge(limit = limit + 1, bulk = True)
     await ctx.send(str(ctx.message.author) + ' Deleted {} message(s)'.format(len(delete)))
+
+@client.command()
+async def help(ctx):
+    embed = discord.Embed(
+        title = 'Help page',
+        description = 'This is the help page (WIP)'
+    )
+    embed.set_image(url='https://discordemoji.com/assets/emoji/2788_stupid.png')
+    embed.set_footer(text='Laget av Alexander Gnauck 3ELDEA')
+
+    await ctx.send(embed = embed)
+    pass
     
 
 
