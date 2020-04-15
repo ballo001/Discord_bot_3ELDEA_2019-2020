@@ -29,7 +29,7 @@ async def addrole(ctx):
     
 @client.command()
 async def purge(ctx,limit: int):
-    delete = await ctx.channel.purge(limit = limit, bulk = True)
+    delete = await ctx.channel.purge(limit = limit + 1, bulk = True)
     await ctx.send(str(ctx.message.author) + ' Deleted {} message(s)'.format(len(delete)))
     
 
