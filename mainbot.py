@@ -53,9 +53,10 @@ async def help(ctx):
     await ctx.send(embed = embed)
     pass
 
-
+#opens token.json
 with open('token.json', 'r') as opentoken:
     json_object = json.load(opentoken)
+#grabs token from json file in var token
 token = json_object.get("token")
 
 client.run(token)
