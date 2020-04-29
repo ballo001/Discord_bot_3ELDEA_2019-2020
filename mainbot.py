@@ -1,10 +1,12 @@
+import json
 import discord
 from discord.ext import commands
 from discord.utils import get
 from discord import channel
 import string
 
-TOKEN = 'Njk0OTYyNjkxMjkwMTY5MzU0.XoUpNA.owfpukXyNi1iqtImrLe5TSJYSwQ'
+
+
 client = discord.Client()
 Current_Playing = discord.Game("with numbers")
 prefix = "?" #Define prefix for bot
@@ -51,4 +53,9 @@ async def help(ctx):
     await ctx.send(embed = embed)
     pass
 
-client.run(TOKEN)
+
+with open('token.json', 'r') as opentoken:
+    json_object = json.load(opentoken)
+token = json_object.get("token")
+
+client.run(token)
